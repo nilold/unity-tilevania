@@ -18,11 +18,13 @@ public class Player : MonoBehaviour {
     private Rigidbody2D myRigidBody;
     private Animator animator;
     private Collider2D collider;
+    private Collider2D feetCollider;
 
 	void Start () {
         myRigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         collider = GetComponent<Collider2D>();
+        feetCollider = GetComponentInChildren<BoxCollider2D>();
         startingGravity = myRigidBody.gravityScale;
     }
 	
@@ -43,7 +45,8 @@ public class Player : MonoBehaviour {
 
     private void Jump(){
         bool jump = CrossPlatformInputManager.GetButtonDown("Jump");
-        bool grounded = collider.IsTouchingLayers(LayerMask.GetMask("Ground"));
+
+        bool grounded = feetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"));
 
         if (jump && grounded)
             myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, jumpForce);
