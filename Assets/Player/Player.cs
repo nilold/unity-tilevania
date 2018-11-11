@@ -11,6 +11,7 @@ public class Player : MonoBehaviour {
     [SerializeField] float jumpForce = 10f;
     [SerializeField] float jumpHorizotalPush = 1.5f;
     [SerializeField] float deathDrama = 10f;
+    [SerializeField] float respawnDelay = 3f;
 
     // state
     bool isAlive = true;
@@ -19,13 +20,13 @@ public class Player : MonoBehaviour {
     // cached component references
     private Rigidbody2D myRigidBody;
     private Animator animator;
-    private Collider2D collider;
+    private Collider2D myCollider;
     private Collider2D feetCollider;
 
 	void Start () {
         myRigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        collider = GetComponent<Collider2D>();
+        myCollider = GetComponent<Collider2D>();
         feetCollider = GetComponentInChildren<BoxCollider2D>();
         startingGravity = myRigidBody.gravityScale;
     }
@@ -71,7 +72,7 @@ public class Player : MonoBehaviour {
     }
 
     private void ClimbLadder(){
-        bool touchingLadder = collider.IsTouchingLayers(LayerMask.GetMask("Ladder"));
+        bool touchingLadder = myCollider.IsTouchingLayers(LayerMask.GetMask("Ladder"));
         if(touchingLadder){
             float ySpeed = CrossPlatformInputManager.GetAxis("Vertical") * climbSpeed;
             animator.SetBool("climbing", Mathf.Abs(ySpeed) > Mathf.Epsilon);
@@ -98,5 +99,11 @@ public class Player : MonoBehaviour {
         isAlive = false;
         myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, deathDrama);
         animator.SetTrigger("die");
+        StartCoroutine(ProcessDeath());
+    }
+
+    IEnumerator ProcessDeath(){
+        yield return new WaitForSeconds(respawnDelay);
+        FindObjectOfType<GameSession>().ProcessPlayerDeath();
     }
 }
