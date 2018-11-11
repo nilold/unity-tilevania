@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 114091649168582136}
   - component: {fileID: 114493566104488530}
   m_Layer: 0
-  m_Name: VCam (Climb)
+  m_Name: VCam (Dead)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -169,7 +169,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1388236002074406}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.825088, y: -3.0298247, z: -10}
+  m_LocalPosition: {x: 39.4991, y: 11.9361, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4208599979476566}
@@ -182,8 +182,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1666042858239918}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 75, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4111192252427242}
@@ -198,7 +198,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1173509175412214}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.810101, y: -2.6710997, z: 0}
+  m_LocalPosition: {x: 31.9525, y: 11.249983, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4071968405001280}
@@ -237,7 +237,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1629023568163844}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.810101, y: -2.6710997, z: -10}
+  m_LocalPosition: {x: 36.934967, y: 10.812467, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4946353660596084}
@@ -251,7 +251,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1398134051130872}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.810101, y: -2.6710997, z: -10}
+  m_LocalPosition: {x: 38.46447, y: 10.418381, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4153664724750078}
@@ -309,9 +309,9 @@ Camera:
     height: 1
   near clip plane: 0.01
   far clip plane: 5000
-  field of view: 40
+  field of view: 35.2256
   orthographic: 1
-  orthographic size: 4.01
+  orthographic size: 5.1996207
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -354,7 +354,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 40
-    OrthographicSize: 4.01
+    OrthographicSize: 0.61
     NearClipPlane: 0.01
     FarClipPlane: 5000
     Dutch: 0
@@ -460,22 +460,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad980451443d70438faac0bc6c235a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_LookaheadTime: 0
-  m_LookaheadSmoothing: 5.5
+  m_LookaheadTime: 0.857
+  m_LookaheadSmoothing: 22.8
   m_XDamping: 0
-  m_YDamping: 0
-  m_ZDamping: 1
-  m_ScreenX: 0.5014104
-  m_ScreenY: 0.4400125
+  m_YDamping: 4.1
+  m_ZDamping: 1.3
+  m_ScreenX: 0.5
+  m_ScreenY: 0.5
   m_CameraDistance: 10
   m_DeadZoneWidth: 0.12
-  m_DeadZoneHeight: 0.12
+  m_DeadZoneHeight: 0.237
   m_DeadZoneDepth: 0
   m_UnlimitedSoftZone: 0
   m_SoftZoneWidth: 0.8
   m_SoftZoneHeight: 0.8
   m_BiasX: 0
-  m_BiasY: 0.0000001753078
+  m_BiasY: 0.0000002117394
   m_GroupFramingMode: 2
   m_AdjustmentMode: 2
   m_GroupFramingSize: 0.8
@@ -584,6 +584,10 @@ MonoBehaviour:
     m_VirtualCamera: {fileID: 114401928539107876}
     m_ActivateAfter: 0
     m_MinDuration: 0
+  - m_FullHash: 1684585544
+    m_VirtualCamera: {fileID: 114091649168582136}
+    m_ActivateAfter: 0
+    m_MinDuration: 0
   m_DefaultBlend:
     m_Style: 1
     m_Time: 5
@@ -594,6 +598,8 @@ MonoBehaviour:
   - m_Hash: 256545655
     m_ParentHash: 756556552
   - m_Hash: -725336713
+    m_ParentHash: 756556552
+  - m_Hash: 1684585544
     m_ParentHash: 756556552
 --- !u!114 &114797367900889156
 MonoBehaviour:

@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
     [SerializeField] float speed = 10f;
     [SerializeField] float climbSpeed = 3f;
     [SerializeField] float jumpForce = 10f;
+    [SerializeField] float jumpHorizotalPush = 1.5f;
     [SerializeField] float deathDrama = 10f;
 
     // state
@@ -50,8 +51,11 @@ public class Player : MonoBehaviour {
 
         bool grounded = feetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"));
 
-        if (jump && grounded)
-            myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, jumpForce);
+        if (jump && grounded){
+            float xVel = jumpHorizotalPush * myRigidBody.velocity.x;
+            myRigidBody.velocity = new Vector2(xVel, jumpForce);
+        }
+           
     }
 
     private void FlipSprite(){
