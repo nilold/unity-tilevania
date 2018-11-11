@@ -21,7 +21,7 @@ TagManager:
   - Background
   - Enemy
   - Letal
-  - 
+  - Interactables
   - 
   - 
   - 
@@ -54,6 +54,9 @@ TagManager:
     locked: 0
   - name: Spikes
     uniqueID: 3883984491
+    locked: 0
+  - name: Interactables
+    uniqueID: 1907217735
     locked: 0
   - name: Enemy
     uniqueID: 2208870743

@@ -50,8 +50,9 @@ public class Player : MonoBehaviour {
         bool jump = CrossPlatformInputManager.GetButtonDown("Jump");
 
         bool grounded = feetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"));
+        bool laddered = feetCollider.IsTouchingLayers(LayerMask.GetMask("Ladder"));
 
-        if (jump && grounded){
+        if (jump && (grounded || laddered)){
             float xVel = jumpHorizotalPush * myRigidBody.velocity.x;
             myRigidBody.velocity = new Vector2(xVel, jumpForce);
         }
