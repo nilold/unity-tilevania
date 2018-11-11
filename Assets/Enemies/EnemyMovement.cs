@@ -19,11 +19,12 @@ public class EnemyMovement : MonoBehaviour {
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.tag == "Ground"){
+        // this if wont work on production build, somewhy
+        //if(collision.tag == "Ground"){
             // flip
             moveSpeed *= -1f;
             transform.localScale = new Vector2(Mathf.Sign(moveSpeed), 1);
-        }
+        //}
     }
 
 }

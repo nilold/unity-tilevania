@@ -13,6 +13,8 @@ public class Player : MonoBehaviour {
     [SerializeField] float deathDrama = 10f;
     [SerializeField] float respawnDelay = 3f;
 
+    [SerializeField] AudioClip jumpAudioClip;
+
     // state
     bool isAlive = true;
     bool freezed = false;
@@ -23,12 +25,14 @@ public class Player : MonoBehaviour {
     private Animator animator;
     private Collider2D myCollider;
     private Collider2D feetCollider;
+    private AudioSource audioSource;
 
 	void Start () {
         myRigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         myCollider = GetComponent<Collider2D>();
         feetCollider = GetComponentInChildren<BoxCollider2D>();
+        audioSource = GetComponent<AudioSource>();
         startingGravity = myRigidBody.gravityScale;
     }
 	
@@ -55,6 +59,7 @@ public class Player : MonoBehaviour {
         bool laddered = feetCollider.IsTouchingLayers(LayerMask.GetMask("Ladder"));
 
         if (jump && (grounded || laddered)){
+            audioSource.PlayOneShot(jumpAudioClip);
             float xVel = jumpHorizotalPush * myRigidBody.velocity.x;
             myRigidBody.velocity = new Vector2(xVel, jumpForce);
         }
