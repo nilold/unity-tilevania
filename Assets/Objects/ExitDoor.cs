@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class ExitDoor : MonoBehaviour {
 
     [SerializeField] float LevelLoadDelay = 1f;
-    [SerializeField] float LevelExitSlowMoFactor = 0.2f;
+    //[SerializeField] float LevelExitSlowMoFactor = 0.2f;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -18,13 +18,13 @@ public class ExitDoor : MonoBehaviour {
 
     private IEnumerator LoadNexScene(){
 
-        Time.timeScale = LevelExitSlowMoFactor;
+        //Time.timeScale = LevelExitSlowMoFactor;
         yield return new WaitForSecondsRealtime(LevelLoadDelay);
 
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex + 1);
 
-        Time.timeScale = 1f;
+        //Time.timeScale = 1f;
     }
 
 }
