@@ -34,6 +34,11 @@ public class GameSession : MonoBehaviour {
 		
 	}
 
+    public void AddToScore(int addAmount){
+        playerScore += addAmount;
+        scoreText.text = playerScore.ToString();
+    }
+
     public void ProcessPlayerDeath(){
         if(playerLives > 1)
         {
@@ -47,8 +52,9 @@ public class GameSession : MonoBehaviour {
 
     private void TakeLife()
     {
+        Debug.Log("taking score");
         playerLives--;
-        //Reload scene
+        livesText.text = playerLives.ToString();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
