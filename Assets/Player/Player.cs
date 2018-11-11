@@ -81,14 +81,15 @@ public class Player : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.GetComponent<EnemyMovement>() && isAlive)
-        {
+        if(collision.GetComponent<EnemyMovement>())
             Die();
-        }
+        if(myRigidBody.IsTouchingLayers(LayerMask.GetMask("Letal")))
+            Die();
     }
 
     private void Die()
     {
+        if (!isAlive) { return; }
         isAlive = false;
         myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, deathDrama);
         animator.SetTrigger("die");

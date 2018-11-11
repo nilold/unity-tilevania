@@ -20,7 +20,7 @@ TagManager:
   - Player
   - Background
   - Enemy
-  - 
+  - Letal
   - 
   - 
   - 
@@ -46,8 +46,14 @@ TagManager:
   - name: Background
     uniqueID: 3334716461
     locked: 0
+  - name: Water
+    uniqueID: 1202123509
+    locked: 0
   - name: Ladder
     uniqueID: 3127061947
+    locked: 0
+  - name: Spikes
+    uniqueID: 3883984491
     locked: 0
   - name: Enemy
     uniqueID: 2208870743
