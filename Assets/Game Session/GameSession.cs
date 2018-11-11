@@ -3,10 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameSession : MonoBehaviour {
 
     [SerializeField] int playerLives = 3;
+    [SerializeField] int playerScore = 0;
+    [SerializeField] Text livesText;
+    [SerializeField] Text scoreText;
 
     // Makes this object singleton
     private void Awake()
@@ -21,7 +25,8 @@ public class GameSession : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
+        livesText.text = playerLives.ToString();
+        scoreText.text = playerScore.ToString();
 	}
 	
 	// Update is called once per frame

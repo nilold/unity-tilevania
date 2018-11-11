@@ -15,6 +15,7 @@ public class Player : MonoBehaviour {
 
     // state
     bool isAlive = true;
+    bool freezed = false;
     float startingGravity;
 
     // cached component references
@@ -32,7 +33,7 @@ public class Player : MonoBehaviour {
     }
 	
 	void Update () {
-        if (!isAlive) return;
+        if (!isAlive || freezed) return;
         Run();
         Jump();
         FlipSprite();
@@ -105,5 +106,14 @@ public class Player : MonoBehaviour {
     IEnumerator ProcessDeath(){
         yield return new WaitForSeconds(respawnDelay);
         FindObjectOfType<GameSession>().ProcessPlayerDeath();
+    }
+
+    public void Freeze(){
+        myRigidBody.velocity = new Vector2(0f, 0f);
+        freezed = true;
+    }
+
+    public void Unfreeze(){
+        freezed = false;
     }
 }
