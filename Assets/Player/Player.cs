@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
     [SerializeField] float speed = 10f;
     [SerializeField] float climbSpeed = 3f;
     [SerializeField] float jumpForce = 10f;
+    [SerializeField] float deathDrama = 10f;
 
     // state
     bool isAlive = true;
@@ -29,6 +30,7 @@ public class Player : MonoBehaviour {
     }
 	
 	void Update () {
+        if (!isAlive) return;
         Run();
         Jump();
         FlipSprite();
@@ -75,5 +77,20 @@ public class Player : MonoBehaviour {
             animator.SetBool("climbing", false);
             myRigidBody.gravityScale = startingGravity;
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.GetComponent<EnemyMovement>() && isAlive)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        isAlive = false;
+        myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, deathDrama);
+        animator.SetTrigger("die");
     }
 }
