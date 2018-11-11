@@ -265,7 +265,7 @@ MonoBehaviour:
   jumpHorizotalPush: 2
   deathDrama: 25
   respawnDelay: 3
-  jumpAudioClip: {fileID: 8300000, guid: 65b06a24978bc4f2eb9a66cadc5a0bad, type: 3}
+  jumpAudioClip: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
 --- !u!212 &212009308439962200
 SpriteRenderer:
   m_ObjectHideFlags: 1
